@@ -1,0 +1,53 @@
+<div
+  class="group relative bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-slate-700"
+>
+  <a>
+    <div class="overflow-hidden bg-slate-700" id="productImage">
+      <img
+        [src]="product.imgUrl"
+        [alt]="product.name"
+        class="object-cover group-hover:scale-110 transition-transform duration-500"
+      />
+    </div>
+
+    <div class="p-5" id="productDetails">
+      <p class="text-xs text-gray-400 mb-1">{{ product.brand }}</p>
+      <h3 class="text-white mb-2 line-clamp-2 min-h-[3rem] text-2xl">
+        {{ product.name }}
+      </h3>
+      <p class="text-2xl text-blue-600 mb-4">${{ product.price }}</p>
+      <div class="mb-4">
+        @if (product.stocks > 0) {
+        <p class="text-xs text-green-600 flex gap-2"><i class="fa-solid fa-check"></i>In Stock</p>
+        } @else {
+        <p class="text-xs text-red-600 flex gap-2"><i class="fa-solid fa-x"></i>Out of Stock</p>
+        }
+      </div>
+
+      <button
+        class="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white rounded-lg transition-colors flex items-center justify-center gap-2"
+      >
+        اضافه به سبد خرید<i class="fa-solid fa-cart-plus"></i>
+      </button>
+    </div>
+
+    <div
+      class="absolute top-4 right-4 z-10 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity"
+    >
+      <button
+        class="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 dark:hover:bg-slate-600 transition-colors"
+        (click)="toggleFavorite()"
+      >
+        <i
+          class="fa-solid fa-heart lucide lucide-heart w-5 h-5"
+          [ngClass]="isLiked ? 'text-red-600' : 'text-gray-300'"
+        ></i>
+      </button>
+      <button
+        class="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 dark:hover:bg-slate-600 transition-colors"
+      >
+        <i class="fa-solid fa-eye lucide lucide-eye w-5 h-5 text-gray-300"></i>
+      </button>
+    </div>
+  </a>
+</div>

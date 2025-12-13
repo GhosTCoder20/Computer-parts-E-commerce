@@ -1,0 +1,30 @@
+<div class="min-h-screen bg-slate-950 px-4 sm:px-6 lg:px-8 py-20 text-white">
+  <h1 class="text-4xl mb-3">محصولات ما</h1>
+  <p class="text-gray-400 text-lg mb-8">نمایش محصولات</p>
+  <div class="flex flex-col sm:flex-row gap-4 mb-4">
+    <input
+      type="text"
+      placeholder="جستجو محصولات"
+      class="flex-1 relative border border-gray-200 bg-slate-800 focus:border-blue-500 outline-none transition-colors rounded-xl pr-12 pl-4 py-3"
+    />
+    <select
+      name="FilterBy"
+      id="FilterBy"
+      class="px-6 py-3 rounded-xl border border-slate-700 bg-slate-800 focus:border-blue-500 dark:focus:border-blue-500 outline-none transition-colors"
+    >
+      <option value="Featured">پیشنهادی</option>
+      <option value="HightToLow">قیمت:زیاد به کم</option>
+      <option value="LowToHight">فیمت:کم به زیاد</option>
+      <option value="Rating">نظرات</option>
+    </select>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+     @if (products.length>0) { @for (product of products; track product.id) {
+    <app-product-cards [product]="product"></app-product-cards>
+    } }@else {
+    <h2 class="mb-12 text-4xl sm:text-5xl text-white">
+      در حال حاضر محصولی نداریم.از صبوری شما متشکریم
+    </h2>
+    }
+  </div>
+</div>
