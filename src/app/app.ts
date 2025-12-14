@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet,provideRouter } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { Header } from './Components/Header/header';
+import { Header } from './Shared/Header/header';
 
 @Component({
   selector: 'app-root',

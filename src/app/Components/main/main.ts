@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterLinkWithHref } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { ProductCards } from './product-cards/product-cards';
+import { ProductCards } from '../../Shared/product-cards/product-cards';
 import { productServices } from '../../Products-servic';
 
 @Component({

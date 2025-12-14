@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from "@angular/router";
 
 type Product = {
   id: number;
@@ -13,7 +14,7 @@ type Product = {
 @Component({
   selector: 'app-product-cards',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './product-cards.html',
   styles: `
   :host{
