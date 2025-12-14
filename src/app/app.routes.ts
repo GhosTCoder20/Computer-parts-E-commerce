@@ -1,8 +1,9 @@
-import { Routes } from '@angular/router';  
+import { Routes } from '@angular/router';
+import { Main } from './Components/main/main';
 
 export const routes: Routes = [
     {
-        path:'',loadComponent:()=>import('./Components/main/main').then(m=>m.Main),
+        path:'',component:Main,
         title:'Home',
         pathMatch:'full'
     },

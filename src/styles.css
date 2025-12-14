@@ -1,6 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'tailwindcss';
 
+@font-face {
+  font-family: Samim;
+  src: url(./assets/Farsi-Digits/Samim-Bold-FD.ttf) format('ttf'),
+      url(./assets/Farsi-Digits/Samim-FD.eot) format('eot'),
+      url(./assets/Farsi-Digits/Samim-FD.woff) format('woff'),
+      url(./assets/Farsi-Digits/Samim-FD.woff2) format('woff2'),
+}
+*{
+  font-family: 'Samim';
+}
 html,
 body {
   height: 100%;

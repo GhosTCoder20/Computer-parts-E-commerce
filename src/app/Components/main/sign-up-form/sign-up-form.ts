@@ -29,9 +29,24 @@ import {
 export class SignUpForm {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   passwordForm:FormGroup;
-  constructor(private fb:FormBuilder){
-    this.passwordForm=this.fb.group({})
-  }
+  constructor(private fb: FormBuilder) {
+        this.passwordForm = this.fb.group(
+            {
+                password: [
+                    '',
+                    [
+                        Validators.required,
+                        Validators.minLength(6),
+                        this.hasUppercase,
+                        this.hasNumber,
+                        this.hasSpecialCharacter,
+                    ],
+                ],
+                confirmPassword: ['', Validators.required],
+            },
+            { validator: this.passwordMatchValidation }
+        );
+    }
   passwordMatchValidation(form: FormGroup) {
     const password = form.get('password')?.value;
     const confirmPassword = form.get('confirmPassword')?.value;
