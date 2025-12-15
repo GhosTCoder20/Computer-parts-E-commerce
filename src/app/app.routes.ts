@@ -12,11 +12,16 @@ export const routes: Routes = [
         title:"Products"
     },
     {
-        path:'Login',loadComponent:()=>import('./Components/main/login-form/login-form').then(m=>m.LoginForm),
+        path:'Login',loadComponent:()=>import('./core/Users/login-form/login-form').then(m=>m.LoginForm),
         title:"Login"
     },
     {
-        path:'Signup',loadComponent:()=>import('./Components/main/sign-up-form/sign-up-form').then(m=>m.SignUpForm),
+        path:'Signup',loadComponent:()=>import('./core/Users/sign-up-form/sign-up-form').then(m=>m.SignUpForm),
         title:"Sign-Up"
-    }
+    },
+    {
+        path:'AdminPanel',
+        loadComponent:()=>import('./Components/Features/admin-panel/admin-panel').then(m=>m.AdminPanel),
+        title:'Panel',
+    },
 ];

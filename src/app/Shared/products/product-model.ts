@@ -5,5 +5,5 @@ export interface product {
   brand: string;
   price: number;
   imgUrl: string;
-  stocks: number;
+  Instocks: number;
 }

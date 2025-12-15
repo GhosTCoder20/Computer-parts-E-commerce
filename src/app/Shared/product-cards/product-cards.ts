@@ -1,15 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from "@angular/router";
-
-type Product = {
-  id: number;
-  name: string;
-  brand: string;
-  price: number;
-  imgUrl: string;
-  stocks: number;
-};
+import { product } from '../products/product-model';
 
 @Component({
   selector: 'app-product-cards',
@@ -23,7 +15,7 @@ type Product = {
   `,
 })
 export class ProductCards {
-  @Input() product: Product = { id: 0, name: '', brand: '', price: 0, imgUrl: '', stocks: 0 };
+  @Input() product:product={id:0,name:'',brand:'',imgUrl:'',Instocks:0,price:0}
   isLiked: boolean = false;
   toggleFavorite() {
     this.isLiked = !this.isLiked;

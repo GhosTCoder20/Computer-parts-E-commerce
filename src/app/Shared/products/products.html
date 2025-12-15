@@ -21,13 +21,13 @@
       <option value="Rating">نظرات</option>
     </select>
   </div>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-     @if (products.length>0) { @for (product of products; track product.id) {
-    <app-product-cards [product]="product"></app-product-cards>
-    } }@else {
-    <h2 class="mb-12 text-4xl sm:text-5xl text-white">
-      در حال حاضر محصولی نداریم.از صبوری شما متشکریم
-    </h2>
-    }
-  </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+       @if (products.length>0) { @for (product of products; track product.id) {
+      <app-product-cards [product]="product"></app-product-cards>
+      } }@else {
+      <h2 class="mb-12 text-4xl sm:text-5xl text-white">
+        در حال حاضر محصولی نداریم.از صبوری شما متشکریم
+      </h2>
+      }
+    </div>
 </div>

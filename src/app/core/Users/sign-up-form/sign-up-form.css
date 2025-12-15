@@ -10,7 +10,7 @@ form {
   padding: 28px;
   border-radius: 20px;
 }
-svg {
+ mat-form-field  svg {
   position: absolute;
   left: 10px;
   top: 31%;
@@ -18,6 +18,7 @@ svg {
   height: 20px;
   fill: black;
 }
+
 label {
   color: #99a1af;
 }

@@ -4,11 +4,11 @@
 @font-face {
   font-family: Samim;
   src: url(./assets/Farsi-Digits/Samim-Bold-FD.ttf) format('ttf'),
-      url(./assets/Farsi-Digits/Samim-FD.eot) format('eot'),
-      url(./assets/Farsi-Digits/Samim-FD.woff) format('woff'),
-      url(./assets/Farsi-Digits/Samim-FD.woff2) format('woff2'),
+    url(./assets/Farsi-Digits/Samim-FD.eot) format('eot'),
+    url(./assets/Farsi-Digits/Samim-FD.woff) format('woff'),
+    url(./assets/Farsi-Digits/Samim-FD.woff2) format('woff2');
 }
-*{
+* {
   font-family: 'Samim';
 }
 html,
@@ -19,18 +19,22 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
-#Logo{
-    width: 3rem;
-    height: 3rem;
-    background: linear-gradient(to bottom right,#2b7fff,#00d3f3);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content:center;
+#Logo {
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(to bottom right, #2b7fff, #00d3f3);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-#Logo:hover{
-    transform: scale(115%);
+#Logo:hover {
+  transform: scale(115%);
 }
-#Logo:hover svg{
-    transform: scale(115%);
+#Logo:hover svg {
+  transform: scale(115%);
+}
+mat-error {
+  font-size: 16px;
+  text-align: start;
 }
