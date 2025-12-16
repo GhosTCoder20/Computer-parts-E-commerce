@@ -1,12 +1,14 @@
 import { Routes } from '@angular/router';  
+import { Product } from './product/product';
+
 
 export const route:Routes=[
     {
-        path:'',
-        loadComponent:()=>import('./products').then(m=>m.Products)
+        path:':id',
+        component: Product
     },
     {
-        path:':id',
-        loadComponent:()=>import('./product/product').then(m=>m.Product)
+        path:'',
+        loadComponent:()=>import('./products').then(m=>m.Products)
     }
 ]

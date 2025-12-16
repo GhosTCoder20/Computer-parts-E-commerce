@@ -15,7 +15,15 @@ import { product } from '../products/product-model';
   `,
 })
 export class ProductCards {
-  @Input() product:product={id:0,name:'',brand:'',imgUrl:'',Instocks:0,price:0}
+  @Input() product:product={ id: 0,
+  name: '',
+  brand: '',
+  category:'',
+  price: 0,
+  imageURL: '',
+  stock: 0,
+  rating:'',
+  createdAt:''}
   isLiked: boolean = false;
   toggleFavorite() {
     this.isLiked = !this.isLiked;

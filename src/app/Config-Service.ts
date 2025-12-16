@@ -1,66 +1,70 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable, inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { product } from './Shared/products/product-model';
 import { user } from './core/Users/users-model';
-import { BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class ConfigService {
   private http = inject(HttpClient);
+  private BASE_URL = 'https://e-commerce-fake-api-production.up.railway.app';
 
-  // central lists and observable subject for products
-  private productsSubject = new BehaviorSubject<product[]>([]);
-  products = this.productsSubject.asObservable();
-
-  private LoadingSubject = new BehaviorSubject<boolean>(false);
-  loading = this.productsSubject.asObservable();
-
+  Loading = signal<boolean>(false);
   ProductsList: product[] = [];
+  product={};
   UsersList: user[] = [];
   error: string = '';
 
-  // fetch products and publish to productsSubject
+  //CRUD oprations for products
+
   getProducts() {
-    this.LoadingSubject.next(true);
-    this.http.get<any[]>('https://e-commerce-fake-api.onrender.com/products').subscribe({
+    this.Loading.set(true);
+    this.http.get<any[]>(`${this.BASE_URL}/products`).subscribe({
       next: (data) => {
         this.ProductsList = data;
-        this.productsSubject.next(data);
-        this.LoadingSubject.next(false);
+        this.Loading.set(false);
       },
       error: (err) => {
-        this.LoadingSubject.next(false);
+        this.Loading.set(false);
         this.error = 'Failed to get products';
         console.error('Failed to get products', err);
       },
     });
     return this.ProductsList;
-    // return this.products;
+  }
+
+  getProductById(id: number) {
+    this.Loading.set(true);
+    this.product=this.http.get<product>(`${this.BASE_URL}/products/${id}`);
+    return this.product;
   }
 
   createProduct(newProduct: product) {
-    this.LoadingSubject.next(true);
-    return this.http
-      .post<product>('https://e-commerce-fake-api.onrender.com/products', newProduct)
-      .pipe(
-        tap((created) => {
-          this.ProductsList = [...this.ProductsList, created];
-          this.productsSubject.next(this.ProductsList);
-          this.LoadingSubject.next(false);
-        })
-      );
+    this.Loading.set(true);
+
+    return this.http.post<product>(`${this.BASE_URL}/products`, newProduct).pipe(
+      tap((created) => {
+        this.ProductsList = [...this.ProductsList, created];
+        this.Loading.set(false);
+      })
+    );
   }
 
+  //CRUD oprations for users
   getUsers() {
-    this.http.get<any[]>('https://e-commerce-fake-api.onrender.com/users').subscribe({
+    this.Loading.set(true);
+
+    this.http.get<any[]>(`${this.BASE_URL}/users`).subscribe({
       next: (data) => {
+        this.Loading.set(false);
         this.UsersList = data;
       },
       error: () => {
+        this.Loading.set(false);
         this.error = 'Failed to get users';
         console.log('Failed to get users');
       },
     });
+    return this.UsersList;
   }
 }

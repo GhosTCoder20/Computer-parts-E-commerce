@@ -1,18 +1,20 @@
-import { Component, Inject, inject, OnInit } from '@angular/core';
+import { Component, computed, inject, OnInit } from '@angular/core';
 import { ProductCards } from '../../Shared/product-cards/product-cards';
 import { product } from './product-model';
 import { ConfigService } from '../../Config-Service';
+import { Spinner } from '../spinner/spinner';
 
 @Component({
   selector: 'app-products',
-  imports: [ProductCards],
+  imports: [ProductCards,Spinner],
   templateUrl: './products.html',
 })
 export class Products implements OnInit {
   products: product[] = [];
+  private opService = inject(ConfigService);
+  loading=computed(()=>this.ConfigService.Loading());
   constructor(private ConfigService: ConfigService) {}
   ngOnInit() {
-    // trigger initial load (will push into products$ when response arrives)
     this.products = this.ConfigService.getProducts();
   }
 }

@@ -19,7 +19,7 @@
             </p>
             <div class="flex gap-3">
               <a
-              routerLink="/products"
+                routerLink="/products"
                 class="group px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-xl hover:shadow-2xl hover:shadow-blue-500/50 transition-all flex items-center gap-2"
               >
                 <p>خرید کنید</p>
@@ -106,18 +106,41 @@
 
   <section id="Show-products" class="py-20 px-4 sm:px-6 lg:px-10 bg-slate-900">
     <h2 class="text-center mb-12 text-4xl sm:text-5xl text-white">محصولات پیشنهادی ما</h2>
+    @if(loading()){
+    <app-spinner></app-spinner>
+    }@else {
+
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       @if (products.length>0) { @for (product of products; track product.id) {
       <app-product-cards [product]="product"></app-product-cards>
       } }@else {
-      <h2 class="mb-12 text-4xl sm:text-5xl text-white">
-        در حال حاضر محصولی نداریم.از صبوری شما متشکریم
-      </h2>
+      <div class="text-center py-20 mx-auto">
+        <div
+          class="w-24 h-24 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4"
+        >
+          <svg
+            fill="white"
+            class="w-14 h-14"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+          >
+            <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+            <path
+              d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+            />
+          </svg>
+        </div>
+        <h2 class="text-xl text-gray-400">محصولی پیدا نشد!</h2>
+      </div>
       }
     </div>
+    }
 
     <div class="mt-16 text-center">
-      <a routerLink="/products" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-xl hover:shadow-2xl hover:shadow-blue-500/50 transition-all">
+      <a
+        routerLink="/products"
+        class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-xl hover:shadow-2xl hover:shadow-blue-500/50 transition-all"
+      >
         مشاهده همه محصولات
         <i class="fa-solid fa-arrow-left ml-2"></i>
       </a>

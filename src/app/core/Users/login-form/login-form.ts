@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import {
   FormControl,
-  FormGroupDirective,
-  NgForm,
   Validators,
   FormsModule,
   ReactiveFormsModule,
@@ -19,7 +17,7 @@ import { RouterLink } from '@angular/router';
     FormsModule,
     MatCheckboxModule,
     RouterLink,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   templateUrl: './login-form.html',
   styleUrl: './styles.css',

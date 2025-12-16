@@ -6,9 +6,9 @@
       <input
         type="text"
         placeholder="جستجو محصولات"
-        class=" w-full border border-gray-200 bg-slate-800 focus:border-blue-500 outline-none transition-colors rounded-xl pr-12 pl-4 py-3"
+        class="w-full border border-gray-200 bg-slate-800 focus:border-blue-500 outline-none transition-colors rounded-xl pr-12 pl-4 py-3"
       />
-      <i class="fa-solid fa-magnifying-glass text-white absolute  right-5 top-5 scale-120"></i>
+      <i class="fa-solid fa-magnifying-glass text-white absolute right-5 top-5 scale-120"></i>
     </div>
     <select
       name="FilterBy"
@@ -21,13 +21,34 @@
       <option value="Rating">نظرات</option>
     </select>
   </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-       @if (products.length>0) { @for (product of products; track product.id) {
-      <app-product-cards [product]="product"></app-product-cards>
-      } }@else {
-      <h2 class="mb-12 text-4xl sm:text-5xl text-white">
-        در حال حاضر محصولی نداریم.از صبوری شما متشکریم
-      </h2>
+  @if(loading()){
+    <app-spinner></app-spinner>
+    }@else {
+      @if (products.length>0) {
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        @for (product of products; track product.id) {
+          <app-product-cards [product]="product"></app-product-cards>
+        } 
+      </div>
+    }@else {
+      <div class="text-center py-20 mx-auto">
+        <div
+          class="w-24 h-24 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4"
+        >
+          <svg
+            fill="white"
+            class="w-14 h-14"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+          >
+            <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+            <path
+              d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+            />
+          </svg>
+        </div>
+        <h2 class="text-xl text-gray-400">محصولی پیدا نشد!</h2>
+      </div>
       }
-    </div>
+    }
 </div>

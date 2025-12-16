@@ -22,8 +22,8 @@ import { ConfigService } from '../../../Config-Service';
     RouterLink,
     ReactiveFormsModule,
     MatCheckbox,
-    MatIconModule,
-  ],
+    MatIconModule
+],
   templateUrl: './sign-up-form.html',
   styleUrl: './sign-up-form.css',
 })

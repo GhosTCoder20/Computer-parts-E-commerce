@@ -1,2 +1,22 @@
-<p>product works!</p>
-<h3>product{{':id'}}</h3>
+<div class="max-w-4xl mx-auto p-6 bg-slate-800 rounded-lg text-white">
+  <div class="flex flex-col md:flex-row gap-6">
+    <div class="md:w-1/3 bg-slate-700 rounded-lg overflow-hidden">
+      <img [src]="productSub.imageURL" [alt]="productSub.name" class="w-full h-full object-cover" />
+    </div>
+    <div class="md:w-2/3">
+      <h2 class="text-3xl font-semibold mb-2">{{ productSub.name }}</h2>
+      <p class="text-sm text-gray-400 mb-2">Brand: {{ productSub.brand }}</p>
+      <p class="text-xl text-blue-400 mb-4">${{ product.price }}</p>
+      @if(productSub.stock>0){
+        <p class="text-green-500 mb-4">In stock</p>
+      }@else {
+        <p class="text-red-500 mb-4">In stock</p>
+      }
+      <p class="text-sm text-gray-300">Category: {{ productSub.category }}</p>
+      <p class="text-sm text-gray-400">Rating: {{ productSub.rating }}</p>
+      <div class="mt-6">
+        <button class="py-2 px-4 bg-blue-600 rounded-lg">Add to cart</button>
+      </div>
+    </div>
+  </div>
+</div>
