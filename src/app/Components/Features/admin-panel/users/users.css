@@ -1,0 +1,71 @@
+div{
+    color: white;
+}
+.Add-User {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  color: white;
+  border-radius: 12px;
+  background: linear-gradient(to right, #155dfc, oklch(71.5% 0.143 215.221));
+  fill: white;
+  margin-bottom: 24px;
+}
+.Search-users {
+  border: 2px #314158 solid;
+  border-radius: 16px;
+  padding: 24px;
+  background-color: #1d293d;
+}
+.Search-users input {
+  width: 100%;
+  padding: 16px 0;
+  padding-left: 48px;
+  padding-right: 16px;
+  border-radius: 12px;
+  border: 2px solid #314158;
+  color: white;
+}
+.Search-users svg {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  fill: #99a1af;
+  height: 20px;
+  width: 20px;
+}
+#ByRole{
+    padding: 12px 24px;
+    border-radius: 12px;
+    border :solid 2px #314158;
+    background-color: #0f172b;
+}
+
+.table th{
+    padding: 16px 24px;
+    color: #99a1af;
+    font-size: 12px;
+}
+.table td{
+    padding: 12px 16px;
+    text-align: center;
+}
+.table td .Name{
+    font-size: 14px;
+}
+.table td .Email{
+    font-size: 12px;
+    color: #99a1af;
+}
+.table .Role{
+    text-align: center;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    background-color: #1c398e;
+    color: oklch(70.7% 0.165 254.624);
+}
+.table tr:hover{
+    background-color: #0f172b;
+}
